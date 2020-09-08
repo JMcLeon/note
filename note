@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+#save input inside directory
+echo "$*" >> /home/$USER/Desktop/notes.txt
