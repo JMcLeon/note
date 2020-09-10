@@ -1,4 +1,19 @@
 #!/usr/bin/env bash
-
-#save input inside directory
-echo "$*" >> /home/$USER/Desktop/notes.txt
+for arg in "$@"
+do
+    if [ "$arg" == "--help" ] || [ "$arg" == "-h" ]
+    then
+        echo "Use -l to printe current notes" 
+	echo "Use -r to remove all notes"
+	echo "Or just write stuff "
+    elif [ "$arg" == "-l" ]
+    then
+        cat /home/$USER/Desktop/notes.txt
+    elif [ "$arg" == "-r" ]
+    then 
+	echo "" > /home/$USER/Desktop/notes.txt
+    else
+        #save input inside directory
+        echo "$*" >> /home/$USER/Desktop/notes.txt
+    fi
+done
